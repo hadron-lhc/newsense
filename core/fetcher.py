@@ -5,6 +5,8 @@ import json
 
 
 def fetch_news(topic, page_size=20):
+    load_dotenv()  # carga el .env
+    api_key = os.getenv("NEWSAPI_KEY")
     url = "https://newsapi.org/v2/everything"
     params = {
         "q": topic,
@@ -18,10 +20,6 @@ def fetch_news(topic, page_size=20):
 
 
 if __name__ == "__main__":
-    load_dotenv()  # carga el .env
-
-    api_key = os.getenv("NEWSAPI_KEY")
-
     articles = fetch_news("Apple")
     print(json.dumps(articles[0], indent=2))
     """
