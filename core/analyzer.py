@@ -1,5 +1,5 @@
 from transformers import pipeline
-from database import init_db, get_articles_by_topic
+from core.database import init_db, get_articles_by_topic
 
 _classifier = None
 

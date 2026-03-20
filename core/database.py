@@ -1,6 +1,6 @@
 import sqlite3
 from pathlib import Path
-from fetcher import fetch_news
+from core.fetcher import fetch_news
 
 DATABASE_PATH = Path(__file__).parent.parent / "data" / "newsense.db"
 
@@ -43,6 +43,11 @@ def insert_article(conn, article, topic):
         ),
     )
     conn.commit()
+
+
+def save_articles(conn, articles, topic):
+    for article in articles:
+        insert_article(conn, article, topic)
 
 
 def get_articles_by_topic(conn, topic):
