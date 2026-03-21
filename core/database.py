@@ -2,7 +2,7 @@ import sqlite3
 from pathlib import Path
 from core.fetcher import fetch_news
 
-DATABASE_PATH = Path(__file__).parent.parent / "data" / "newsense.db"
+DATABASE_PATH = Path("/data/newsense.db")
 
 
 def init_db():
