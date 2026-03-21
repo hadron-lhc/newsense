@@ -4,7 +4,7 @@ from custom import personalizar, COLORS
 import pandas as pd
 import plotly.express as px
 
-API_URL = "https://api-inference.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment-latest"
+API_URL = "https://valentin003-newsense-api.hf.space"
 
 st.set_page_config(
     page_title="Newsense",
@@ -81,10 +81,10 @@ def main():
     topic = st.text_input(label="Enter a topic")
     if st.button("Analyze"):
         with st.spinner("Fetching and analyzing news..."):
-            requests.get("http://localhost:8000/news", params={"topic": topic})
-            response = requests.post(
-                "http://localhost:8000/analyze", json={"topic": topic}
-            )
+            requests.get(f"{API_URL}/news", params={"topic": topic})
+            response = requests.post(f"{API_URL}/analyze", json={"topic": topic})
+            requests.get(f"{API_URL}/news", params={"topic": topic})
+            requests.post(f"{API_URL}/analyze", json={"topic": topic})
             analyze_data = response.json()
             st.session_state["results"] = analyze_data["results"]  # guardás
 
