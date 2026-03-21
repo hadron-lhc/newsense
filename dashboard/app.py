@@ -4,6 +4,8 @@ from custom import personalizar, COLORS
 import pandas as pd
 import plotly.express as px
 
+API_URL = "https://api-inference.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment-latest"
+
 st.set_page_config(
     page_title="Newsense",
 )
