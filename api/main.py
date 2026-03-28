@@ -17,8 +17,8 @@ class AnalyzeRequest(BaseModel):
     topic: str
 
 
-@app.get("/")
-def health_check():
+@app.get("/health")
+def health():
     return {"status": "ok"}
 
 
